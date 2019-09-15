@@ -12,17 +12,30 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
 
     const db = client.db(databaseName)
 
-    db.collection('users').updateOne({
-        _id: new ObjectID("5d77601b8541943ba477d0ca")
-    }, {
-        $inc: {
-            age: 1
+    // db.collection('users').updateOne({
+    //     _id: new ObjectID("5d77601b8541943ba477d0ca")
+    // }, {
+    //     $inc: {
+    //         age: 1
+    //     }
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
+    // })
+
+    db.collection('users').insertOne({
+        name: 'jena',
+        age: 18
+    }, (error, result) => {
+        if (error) {
+            return console.log('Unable to connect')
         }
-    }).then((result) => {
-        console.log(result)
-    }).catch((error) => {
-        console.log(error)
+    
+        console.log(result.ops)
     })
+
+
 })
 
 
