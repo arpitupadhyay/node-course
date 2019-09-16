@@ -12,43 +12,23 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
 
     const db = client.db(databaseName)
 
-    db.collection('users').updateOne({
-        _id: new ObjectID("5d7f3eeef517c2349c66b7b5")
-    }, {
-        $inc: {
-            age: 1
-        }
-    }).then((result) => {
-        console.log(result)
-    }).catch((error) => {
-        console.log(error)
-    })
+//    db.collection('users').deleteMany({
+//         age: 27
+//     }).then((result) => {
+//         console.log(result)
+//     }).catch((error) => {
+//         cons ole.log(error)
+//     })
 
-    
-    // db.collection('users').insertMany([
-    //     {
-    //         name: 'Arpit',
-    //         age: 27
-    //     }, {
-    //         name: 'Mike',
-    //         age: 27
-    //     }, {
-    //         name: 'xyz',
-    //         age: 18
-    //     }, {
-    //         name: 'Arpit',
-    //         age: 20
-    //     }, {
-    //         name: 'vikram',
-    //         age: 25
-    //     }
-    // ], (error, result) => {
-    //     if (error) {
-    //         return console.log('Unable to insert documents!')
-    //     }
+db.collection('tasks').deleteOne({
+    description: 'Clean the house'
+}).then((result) => {
+    console.log(result)
+}).catch((error) => {
+    console.log(error)
+})
 
-    //     console.log(result.ops)
-    // })
+
 
 
 })
