@@ -12,34 +12,43 @@ MongoClient.connect(connectionURL, { useNewUrlParser: true, useUnifiedTopology: 
 
     const db = client.db(databaseName)
 
-    // db.collection('users').updateOne({
-    //     _id: new ObjectID("5d77601b8541943ba477d0ca")
-    // }, {
-    //     $inc: {
-    //         age: 1
-    //     }
-    // }).then((result) => {
-    //     console.log(result)
-    // }).catch((error) => {
-    //     console.log(error)
-    // })
+    db.collection('users').updateOne({
+        _id: new ObjectID("5d7f3eeef517c2349c66b7b5")
+    }, {
+        $inc: {
+            age: 1
+        }
+    }).then((result) => {
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
+    })
 
     
-    db.collection('users').insertMany([
-        {
-            name: 'Jen',
-            age: 28
-        }, {
-            name: 'Gunther',
-            age: 27
-        }
-    ], (error, result) => {
-        if (error) {
-            return console.log('Unable to insert documents!')
-        }
+    // db.collection('users').insertMany([
+    //     {
+    //         name: 'Arpit',
+    //         age: 27
+    //     }, {
+    //         name: 'Mike',
+    //         age: 27
+    //     }, {
+    //         name: 'xyz',
+    //         age: 18
+    //     }, {
+    //         name: 'Arpit',
+    //         age: 20
+    //     }, {
+    //         name: 'vikram',
+    //         age: 25
+    //     }
+    // ], (error, result) => {
+    //     if (error) {
+    //         return console.log('Unable to insert documents!')
+    //     }
 
-        console.log(result.ops)
-    })
+    //     console.log(result.ops)
+    // })
 
 
 })
