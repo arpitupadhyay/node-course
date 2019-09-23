@@ -10,8 +10,8 @@ app.use(express.json())
 app.post('/users',(req, res) => {
     const user = new User(req.body)
 
-    user.save().then(() => {
-        res.send(user)
+    User.save().then(() => {
+        res.send(User)
     }).catch(() => {
 
     })

@@ -39,3 +39,5 @@ const User = mongoose.model('User', {
         }
     }
 })
+
+module.expoerts = User
