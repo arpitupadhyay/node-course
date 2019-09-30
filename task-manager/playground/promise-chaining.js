@@ -3,6 +3,14 @@ const User = require('../src/models/user')
 
 
 
-User.findByIdAndUpdate('5d84b6a68ce48f28f4ab84a9', { age: 1 }).then((user) => {
+User.findByIdAndUpdate('5d84baeabd13c822483f5605', { age: 1 }).then((user) => {
     console.log(user)
+    return User.countDocuments({ age: 1})
+}).then((result) => {
+    console.log(result)
+}).catch((e) => {
+    console.log(e)
 })
+
+
+
