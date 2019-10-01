@@ -12,5 +12,10 @@ User.findByIdAndUpdate('5d84baeabd13c822483f5605', { age: 1 }).then((user) => {
     console.log(e)
 })
 
+const updateAgeandCount = async (id, age) => {
+    const user = await User.findByIdAndUpdate(id, { age})
+    const count = await User.countDocuments({ age })
+}
+
 
 
