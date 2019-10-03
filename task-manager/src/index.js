@@ -8,15 +8,15 @@ const port = process.env.PORT || 3000
 
 app.use(express.json())
 
-app.post('/users',(req, res) => {
+app.post('/users', async (req, res) => {
+     const user = new User(req.body)
 
-    const user = new User(req.body)
-
-    user.save().then(() => {
+    try {
+        await user.save()
         res.status(201).send(user)
-    }).catch((e) => {
+    }catch (e) {
         res.status(400).send(e)
-    })
+    }
 })
 
 app.get('/users', (req,res) => {
@@ -59,17 +59,16 @@ app.get('/tasks', (req,res) => {
     })
 })
 
-app.get('/tasks/:id', (req,res) => {
+app.get('/tasks/:id', (req, res) => {
     const _id = req.params.id
-
     Task.findById(_id).then((task) => {
-        if (!task) {
+        if(!task) {
             return res.status(404).send()
         }
-
+ 
         res.send(task)
     }).catch((e) => {
-        res.status(500).send()
+        res.status(500).send(e)
     })
 })
 
