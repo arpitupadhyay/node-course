@@ -75,7 +75,6 @@ app.get('/tasks/:id', async (req, res) => {
     } catch(e) {
         res.status(500).send(e)
     }
-
 })
 app.listen(port, () => {
     console.log('Server is on port ' + port)
