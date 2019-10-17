@@ -7,8 +7,6 @@ mongoose.connect("mongodb+srv://root:root@cluster0-rvniy.mongodb.net/test?retryW
     useUnifiedTopology: true,
     useFindAndModify: false
 })
-
-
 // const MongoClient = require('mongodb').MongoClient;
 // const uri = "mongodb+srv://root:root@cluster0-rvniy.mongodb.net/test?retryWrites=true&w=majority";
 // const client = new MongoClient(uri, { useNewUrlParser: true });
