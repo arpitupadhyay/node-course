@@ -8,7 +8,6 @@ const Task = mongoose.model('Task', {
     }, 
     isCompleted: {
         type: Boolean,
-        required: true,
         default: false
     }
 })
