@@ -42,16 +42,31 @@
         from: 'arpitupadhyay2099@gmail.com',
         subject: 'Thanks for joining in!',
         text: `Welcome to the app, ${name}. Let me know how you get along with the app.`
-    },function (err, data) {
+    }, function (err, data) {
               if (err) {
                   console.log('Error Occurs', err);
               } else {
                   console.log('email sent!!!');
               }
           });
-
   }
 
+    const sendCancelationEmail = (email, name) => {
+        transporter.sendMail({
+            to: email,
+            from: 'arpitupadhyay2099@gmail.com',
+            subject:  'Sorry to see you go! Come back soon!',
+            text: `Goodbye, ${name}. I hope to see you back sometime soon!`
+        }, function (err, data) {
+                  if (err) {
+                      console.log('Error Occurs', err);
+                  } else {
+                      console.log('email sent!!!');
+                  }
+              });
+    }
+
   module.exports = {
-      sendWelcomeEmail
+      sendWelcomeEmail,
+      sendCancelationEmail
   }
