@@ -6,7 +6,6 @@ const auth = require('../middlewear/auth')
 const { sendWelcomeEmail, sendCancelationEmail } = require('../emails/account')
 const router = new express.Router()
 
-// console.log("send",sendWelcomeEmail)
 router.post('/users', async (req, res) => {
     const user = new User(req.body)
 
@@ -17,6 +16,7 @@ router.post('/users', async (req, res) => {
        res.status(201).send({ user, token })
    }catch (e) {
        res.status(400).send(e)
+       console.log(e)
    }
 })
 
