@@ -6,6 +6,7 @@ const auth = require('../middlewear/auth')
 const { sendWelcomeEmail } = require('../emails/account')
 const router = new express.Router()
 
+// console.log("send",sendWelcomeEmail)
 router.post('/users', async (req, res) => {
     const user = new User(req.body)
 

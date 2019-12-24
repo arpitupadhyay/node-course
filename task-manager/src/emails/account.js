@@ -28,13 +28,13 @@
 //       text: 'is it really working?'
 //   };
 
-  transporter.sendMail(mailOptions, function (err, data) {
-      if (err) {
-          console.log('Error Occurs', err);
-      } else {
-          console.log('email sent!!!');
-      }
-  });
+//   transporter.sendMail(mailOptions, function (err, data) {
+//       if (err) {
+//           console.log('Error Occurs', err);
+//       } else {
+//           console.log('email sent!!!');
+//       }
+//   });
 
   const sendWelcomeEmail = (email, name) => {
     transporter.sendMail({
@@ -42,7 +42,14 @@
         from: 'arpitupadhyay2099@gmail.com',
         subject: 'Thanks for joining in!',
         text: `Welcome to the app, ${name}. Let me know how you get along with the app.`
-    })
+    },function (err, data) {
+              if (err) {
+                  console.log('Error Occurs', err);
+              } else {
+                  console.log('email sent!!!');
+              }
+          });
+
   }
 
   module.exports = {
