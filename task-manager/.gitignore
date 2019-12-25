@@ -1,2 +1,3 @@
 node_modules
-dev.env
+git rm -r --cached dev.env
+git rm -r --cached config
