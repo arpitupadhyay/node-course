@@ -15,6 +15,7 @@
     host: 'www.gmail.com', 
     service: 'gmail',
     auth: {
+        type: 'OAuth2',
         user: process.env.user,
         pass: process.env.pass
     }
