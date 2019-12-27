@@ -8,8 +8,8 @@
     "npm": "6.9.0"
   },
   "scripts": {
-    "start":"node src/index.js",
-    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js"
+    "start": "node src/index.js",
+    "dev": "env-cmd -f ./config/dev.env node src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "env-cmd": "^10.0.1",
-    "nodemon": "^1.19.3"
+    "nodemon": "^2.0.2"
   }
 }
