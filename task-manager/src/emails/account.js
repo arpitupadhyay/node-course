@@ -10,14 +10,15 @@
 
 
     const nodemailer = require('nodemailer')
+    const config = require('../../config/config')
  // create reusable transporter object using the default SMTP transport
  let transporter = nodemailer.createTransport({
     host: 'www.gmail.com', 
     service: 'gmail',
     auth: {
         type: 'OAuth2',
-        user: process.env.user,
-        pass: process.env.pass
+        user: config.user,
+        pass: config.pass
     }
  });
 

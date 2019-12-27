@@ -8,7 +8,7 @@
     "npm": "6.9.0"
   },
   "scripts": {
-    "start":"node src/index.js",
+    "start":"nodemon src/index.js",
     "dev":"env-cmd -f ./config/dev.env node src/index.js"
   },
   "keywords": [],
