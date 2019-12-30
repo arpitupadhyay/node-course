@@ -17,8 +17,13 @@ app.use(express.static(publicDirectoryPath))
 io.on('connection', (socket) => {
     console.log('New Websocket connection')
 
-    socket.emit('message', generateMessage('Welcome!'))
-    socket.broadcast.emit('message', generateMessage('A new user has joined!'))
+    socket.on('Join', ({username, room}) => {
+        socket.join(room)
+
+        socket.emit('message', generateMessage('Welcome!'))
+        socket.broadcast.to(room).emit('message', generateMessage(`${username} has joined!`))
+
+    })
 
     socket.on('sendMessage', (message, callback) => {
         const filter = new Filter()
@@ -27,7 +32,7 @@ io.on('connection', (socket) => {
             return callback('Profanity is not allowed!!')
         }
 
-        io.emit('message', generateMessage(message))
+        io.to('sarkhej').emit('message', generateMessage(message))
         callback()
     })
 
@@ -42,5 +47,5 @@ io.on('connection', (socket) => {
 })
 
 server.listen(port, () => {
-    console.log('Server is up on port ' + port)
+    console.log(`Server is on port ${port}!`)
 })
