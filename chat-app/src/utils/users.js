@@ -13,7 +13,7 @@ const addUser = ({ id, username, room }) => {
     }
 
     // Check for existing user
-    const existingUser = users.find((user) => {
+    const existingUser = users.filter((user) => {
         return user.room === room && username === username
     })
 
