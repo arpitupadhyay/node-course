@@ -34,19 +34,18 @@ io.on('connection', (socket) => {
     })
 
     socket.on('sendMessage', (message, callback) => {
-        const user = getUser(socket.id)
         const filter = new Filter()
 
         if (filter.isProfane(message)) {
             return callback('Profanity is not allowed!!')
         }
-        io.to(user.room).emit('message', generateMessage(user.username, message))
+
+        io.to('sarkhej').emit('message', generateMessage(message))
         callback()
     })
 
     socket.on('SendLocation', (coords, callback) => {
-        const user = getUser(socket.id)
-        io.to(user.room).emit('locationMessage', generateLocalMessage(user.username, `https://google.com/maps?q=${coords.latitude},${coords.longitude}`) )
+        io.emit('locationMessage', generateLocalMessage(`https://google.com/maps?q=${coords.latitude},${coords.longitude}`) )
         callback()
     })
 
