@@ -18,7 +18,7 @@ const addUser = ({ id, username, room }) => {
     })
 
     // Validate username
-    if (existingUser) {
+    if (existingUser.length > 0) {
         return {
             error: 'Username is in use!'
         }
