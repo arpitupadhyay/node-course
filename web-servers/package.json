@@ -1,7 +1,6 @@
 {
   "name": "web-servers",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
@@ -15,5 +14,6 @@
     "hbs": "^4.0.4",
     "nodemon": "^1.19.1",
     "request": "^2.88.0"
-  }
+  },
+  "description": ""
 }
