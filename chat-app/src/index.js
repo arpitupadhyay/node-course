@@ -24,7 +24,7 @@ io.on('connection', (socket) => {
         if (error) {
             return callback(error)
         }
-
+    
         socket.join(user.room)
 
         socket.emit('message', generateMessage('Admin', 'Welcome!'))
@@ -39,6 +39,7 @@ io.on('connection', (socket) => {
 
     socket.on('sendMessage', (message, callback) => {
         const user = getUser(socket.id)
+        console.log("UserId: "+ user)
         const filter = new Filter()
 
         if (filter.isProfane(message)) {
