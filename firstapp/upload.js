@@ -6,7 +6,7 @@ const ID = config.ID;
 const SECRET = config.SECRET
 
 // The name of the bucket that you have created
-const BUCKET_NAME = 'arpittestbucket';
+const BUCKET_NAME = '123';
 
 const s3 = new AWS.S3({
     accessKeyId: ID,
