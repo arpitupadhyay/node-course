@@ -1,4 +1,5 @@
 const multer = require('multer')
+
 const upload = multer({
     limits: {
         fileSize: 1000000
@@ -12,7 +13,7 @@ const upload = multer({
     }
 })
 
-router.post('/users/me/pic', upload.single('pic'), async (req,res) => {
+router.post('/pic', upload.single('pic'), async (req,res) => {
     const buffer = await sharp(req.file.buffer).png().toBuffer()
     req.user.pic = buffer
     await req.user.save()
@@ -21,13 +22,13 @@ router.post('/users/me/pic', upload.single('pic'), async (req,res) => {
     res.status(400).send({ error: error.message })
 })
 
-router.delete('/users/me/pic', async (req, res) => {
+router.delete('/pic', async (req, res) => {
     req.user.pic = undefined
     await req.user.save()
     res.send()
 })
 
-router.get('/users/:id/pic', async (req,res) => {
+router.get('/pic', async (req,res) => {
     try {
         const user = await User.findById(req.params.id)
 
